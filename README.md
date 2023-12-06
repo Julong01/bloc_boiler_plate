@@ -1,6 +1,6 @@
 # flutter_bloc_boiler_plate
 
-flutter_bloc_boiler_plate : 구조 재작성 및 샘플 코드
+flutter_bloc_boiler_plate : 구조 및 샘플 코드
 
 ---------------
 
@@ -51,66 +51,91 @@ flutter_bloc_boiler_plate : 구조 재작성 및 샘플 코드
 
 # 📁 Folder Structure
 
-**기본적으로 inca 내에서의 배포는 static 빌드로 이루어지므로 빌드할때 next export를 통해 out 디렉토리를 root에 생성함**
-**본인 기준 서버에 git으로 빌드파일을 pull 하는데 빌드할때마다 out 디렉토리의 파일들이 전부 교체됨(.git포함)**
-**이를 해결하기 위해 build 디렉토리를 생성하여 cp -r out/\* build 명령어로 build 디렉토리에 모두 복사한 후 배포를 진행하는 형식을 채택함**
+**Android => flutter build apk or abb**
 
-### src driectory layout
+***구글 스토어에 업로드시 신규 앱은 abb 방식을 사용함.***
+
+**Ios => flutter build ios**
+
+***Xcode => Archive => validate => distribution => app store upload or ipa export***
+
+***App store console 에서 테스트 플라이트에 올라가있는 빌드중 심사할 빌드를 제출.***
+
+### lib driectory layout
+
+##### main.dart => app 시작 진입점. App 의 전역 설정이나 활용할 Library 초기화 진행
 
     src
-    ├── apis
-    ├── components
-    ├── contexts
-    ├── pages
+    ├── api
+    ├── bloc
+    ├── mics
+    ├── model
+    ├── router
     ├── styles
-    ├── constants
-    ├── store
+    ├── ui
     ├── utils
+    └── main.dart
 
-### Pages
+### bloc
 
-    ├── pages
-    │   ├── apis
-    │   ├── _app.tsx
-    │   ├── _document.
+##### Page 별 상태 관리 bloc 정의 => 현재는 page 별로 관리하려 이 구조로 작성하였으나,
+
+##### page 에 구성될 상태가 분리가 가능할 경우 분리하여 관리한다.
+
+##### 공통적으로 쓰이는 bloc 은 share 디렉토리를 생성하여 관리.
+
+    ├── bloc
+    │   ├── app
+    │   │   ├── app_bloc.dart
+    │   │   ├── app_bloc_observer.dart
+    │   │   ├── app_event.dart
+    │   │   └── app_state.dart
+    │   ├── home
+    │   │   ├── image_horizontal
+    │   │   │   ├── image_horizontal_bloc
+    │   │   │   ├── image_horizontal_event
+    │   │   │   └── image_horizontal_state
+    │   │   └── image_vertical ...
+    │   │
+    │   │
+    │   │
+    │   ├── splash ...
     │   └── ...
     └── ...
 
-### Styles
+### mics
 
-    ├── styles
-    │   ├── index.css
-    │   └── ...
+##### App 에 전역적으로 사용될 상수 값 정의. ex) enum, extensions
+
+    ├── constants.dart
     └── ...
 
-### Apis
+### api
 
-    ├── apis
-    │   ├── _axios
-    │   │   ├── instance
-    │   ├── example
-    │   │   ├── ExampleApi.mutation.ts
-    │   │   ├── ExampleApi.query.ts
-    │   │   ├── ExampleApi.ts
-    │   │   └── ExampleApi.type.ts
-    │   └── ...
+##### http 통신. *.g.dart 는 json_serialize 를 통해 생성한다.
+
+##### app에 사용될 rest-api (back-end)와 3rd-party 용 통신은 분리한다.
+
+    ├── api.dart
+    ├── api.g.dart
     └── ...
 
-### constants
+### model
 
-    ├── constants
-    │   ├── query-keys.ts
-    │   ├── recoil-keys.ts
-    │   ├── routes.ts
-    │   └── ...
+##### api 통신에 필요한 request, response 모델을 정의한다.
+
+##### local 에서 받아온 데이터를 정제하여 사용할시에 local directory 를 생성하여 데이터 모델을 생성.
+
+    ├── *_models.dart
+    ├── *_models.g.dart
     └── ...
 
-### store
+### router
 
-    ├── store
-    │   ├── example
-    │   │   ├── index.ts
-    │   │   └── type.ts
+    ├── router
+    │   ├── *
+    │   │   ├── widget
+    │   │   └── *_view.dart
     │   └── ...
     └── ...
 
