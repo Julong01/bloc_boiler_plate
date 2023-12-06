@@ -132,43 +132,49 @@ flutter_bloc_boiler_plate : 구조 및 샘플 코드
 
 ### router
 
+##### 라우팅되는 스크린들 모음. blocbuilder, consumer, listener 등 각 페이지 시작시점.
+
     ├── router
-    │   ├── *
-    │   │   ├── widget
-    │   │   └── *_view.dart
+    │   ├── *_view.dart
+    │   │
     │   └── ...
     └── ...
 
-### Components
+### ui
 
-    ├── components
+##### app 공통 컴포넌트 위젯, 각 스크린에 활용될 위젯 정의.
+
+    ├── ui
     │   ├── common
-    │   │   ├── Modal
-    │   │   │   ├── DefaultModal.tsx
-    │   │   │   └── ...
-    │   │   ├── Button
-    │   │   │   ├── DefaultButton.tsx
-    │   │   │   └── ...
-    │   │   ├── Input
-    │   │   │   ├── DefaultInput.tsx
-    │   │   │   └── ...
+    │   │   ├── *_widget.dart
     │   │   └── ...
     │   ├── elements
-    │   │   ├── HomePage
-    │   │   │   ├── HomePageSection.tsx
-    │   │   │   ├── HomePage.modulecss
-    │   │   │   └── ...
-    │   │   ├── SigninPage
-    │   │   │   ├── SigninPageSection.tsx
-    │   │   │   ├── SigninPage.modulecss
+    │   │   ├── main
+    │   │   │   ├── *_widget.dart
     │   │   │   └── ...
     │   │   └── ...
-    │   └── hooks
-    │       ├── useInput.tsx
-    │       └── ...
+    │   └── ...
+    └── ...
+
+### utils
+
+##### 공통 함수들 정의. 3rd-party 용 factory class 정의
+
+    ├── utils
+    │   ├── utility.dart
+    │   │
+    │   └── 3rd
+    └── ...
+
+### styles
+
+##### 전역적으로 활용된 app 테마, 컬러
+
+    ├── *_style.dart
     └── ...
 
 # .env base variables
 
-process.env.NEXT_PUBLIC_API_DEV_URL -> dev api 주소
-process.env.NEXT_PUBLIC_API_PROD_URL -> prod api 주소
+##### api key, 버전, develop|release url 관리 => .env 파일 생성하여, main.dart 에서 plugin 으로 파일을 리딩.
+
+.env = {json}

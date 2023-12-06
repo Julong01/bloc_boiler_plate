@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_boiler_plate/bloc/home/image_horizontal/image_horizontal_bloc.dart';
 import 'package:flutter_bloc_boiler_plate/bloc/home/image_horizontal/image_horizontal_state.dart';
-import 'package:flutter_bloc_boiler_plate/router/main/widget/error_widget.dart';
-import 'package:flutter_bloc_boiler_plate/router/main/widget/horizontal_scroll_widget.dart';
-import 'package:flutter_bloc_boiler_plate/router/main/widget/vertical_scroll_widget.dart';
+import 'package:flutter_bloc_boiler_plate/ui/element/main/error_widget.dart';
+import 'package:flutter_bloc_boiler_plate/ui/element/main/horizontal_scroll_widget.dart';
+import 'package:flutter_bloc_boiler_plate/ui/element/main/vertical_scroll_widget.dart';
 import 'package:flutter_bloc_boiler_plate/ui/common/appbar_widget.dart';
 
 class MainView extends StatelessWidget {
