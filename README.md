@@ -1,33 +1,43 @@
 # flutter_bloc_boiler_plate
 
-flutter_bloc_boiler_plate
+flutter_bloc_boiler_plate : 구조 재작성 및 샘플 코드
+
+---------------
 
 # 💾 Version
 
-1. flutter : ^3.16.0
-2. dart : ^3.2.0
-3. android build sdk 32.1.0-rc1
-4. ios-xcode 15.0.1
+> flutter : ^3.16.0
+> dart : ^3.2.0
+> android build sdk 32.1.0-rc1
+> ios-xcode 15.0.1
+
+---------------
 
 # 🕹 Package Manager
 
-pub.dev
+> pub.dev
 
 # 📱 UI
 
-Material && Cupertino && etc(Pub.dev plugin)
+> Material  Cupertino
+> Cupertino
+> etc(Pub.dev plugin)
+
+---------------
 
 # 🗄 Global State Management Library
 
-1. flutter_bloc: ^8.1.3
-2. equatable: ^2.0.5
+> flutter_bloc: ^8.1.3
+> equatable: ^2.0.5
+
+---------------
 
 # 📲 Asynchronous State Management
-## rest-api serialize
-1. retrofit: ">=4.0.0 <5.0.0"
-2. json_annotation: ^4.8.1
-## network
-1. dio: ^5.3.3
+> Rest-api serialize
+>  > retrofit: ">=4.0.0 <5.0.0"
+>  > json_annotation: ^4.8.1
+> Network
+>  > dio: ^5.3.3
 
 # 📁 Folder Structure
 
