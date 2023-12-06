@@ -3,31 +3,31 @@
 flutter_bloc_boiler_plate
 
 # 💾 Version
-### Sdk
-flutter : ^3.16.0
-### State management
-flutter_bloc: ^8.1.3
-equatable: ^2.0.5
-### api 통신, model 직렬화
-retrofit: ">=4.0.0 <5.0.0"
-json_annotation: ^4.8.1
-dio: ^5.3.3
+
+1. flutter : ^3.16.0
+2. dart : ^3.2.0
+3. android build sdk 32.1.0-rc1
+4. ios-xcode 15.0.1
 
 # 🕹 Package Manager
 
-yarn
+pub.dev
 
-# 📱 UI Framework
+# 📱 UI
 
-Semantic ui vs Material ui vs antd
+Material && Cupertino && etc(Pub.dev plugin)
 
 # 🗄 Global State Management Library
 
-recoil
+1. flutter_bloc: ^8.1.3
+2. equatable: ^2.0.5
 
 # 📲 Asynchronous State Management
-
-react-query with axios
+## rest-api serialize
+1. retrofit: ">=4.0.0 <5.0.0"
+2. json_annotation: ^4.8.1
+## network
+1. dio: ^5.3.3
 
 # 📁 Folder Structure
 
