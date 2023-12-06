@@ -13,9 +13,9 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
 
   _next(SplashEventNextScreen event, Emitter<SplashState> emit) {
     event.context.read<AppBloc>().add(AppEventCover(true));
-    Future.delayed(const Duration(milliseconds: 3000), () {
+    Future.delayed(const Duration(milliseconds: 1500), () {
       event.context.read<AppBloc>().add(AppEventCover(false));
-      Navigator.pushReplacementNamed(event.context, "home");
+      Navigator.pushReplacementNamed(event.context, "main");
     });
   }
 }

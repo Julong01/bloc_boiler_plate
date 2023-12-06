@@ -3,13 +3,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_boiler_plate/bloc/home/image_horizontal/image_horizontal_bloc.dart';
-import 'package:flutter_bloc_boiler_plate/router/home_view.dart';
-import 'package:flutter_bloc_boiler_plate/router/splash_view.dart';
+import 'package:flutter_bloc_boiler_plate/bloc/home/image_horizontal/image_horizontal_event.dart';
+import 'package:flutter_bloc_boiler_plate/bloc/home/image_vertical/image_vertical_bloc.dart';
+import 'package:flutter_bloc_boiler_plate/bloc/home/image_vertical/image_vertical_event.dart';
+import 'package:flutter_bloc_boiler_plate/router/main/main_view.dart';
+import 'package:flutter_bloc_boiler_plate/router/splash/splash_view.dart';
+import 'package:flutter_bloc_boiler_plate/styles/app_theme_style.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../bloc/app/app_bloc.dart';
-import '../bloc/app/app_state.dart';
-import '../bloc/splash/splash_bloc.dart';
+import '../../bloc/app/app_bloc.dart';
+import '../../bloc/app/app_state.dart';
+import '../../bloc/splash/splash_bloc.dart';
 
 class AppView extends StatelessWidget {
   AppView({super.key});
@@ -24,6 +28,7 @@ class AppView extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: "BlocPlate",
           locale: context2.locale,
+          theme: AppTheme.dark,
           builder: (context, child) {
             return MediaQuery(
                 data: MediaQuery.of(context).copyWith(
@@ -64,13 +69,17 @@ class AppView extends StatelessWidget {
                           create: (context) => SplashBloc(),
                           child: const SplashView(),
                         ));
-              // case "home":
-              //   return CupertinoPageRoute(
-              //       settings: settings,
-              //       builder: (context) => MultiBlocProvider(providers: providers, child: child)BlocProvider<HomeBloc>(
-              //             create: (context) => HomeBloc(),
-              //             child: HomeView(),
-              //           ));
+              case "main":
+                return CupertinoPageRoute(
+                    settings: settings,
+                    builder: (context) => MultiBlocProvider(providers: [
+                          BlocProvider<ImageHorizontalBloc>(
+                            create: (_) => ImageHorizontalBloc(),
+                          ),
+                          BlocProvider<ImageVerticalBloc>(
+                              create: (_) => ImageVerticalBloc()
+                                ..add(ImageVerticalEventInit()))
+                        ], child: MainView()));
             }
           },
         );

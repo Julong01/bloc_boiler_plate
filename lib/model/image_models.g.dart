@@ -12,7 +12,7 @@ ImageData _$ImageDataFromJson(Map<String, dynamic> json) => ImageData(
       width: json['width'] as int,
       height: json['height'] as int,
       url: json['url'] as String,
-      downloadUrl: json['downloadUrl'] as String,
+      downloadUrl: json['download_url'] as String,
     );
 
 Map<String, dynamic> _$ImageDataToJson(ImageData instance) => <String, dynamic>{
@@ -21,5 +21,5 @@ Map<String, dynamic> _$ImageDataToJson(ImageData instance) => <String, dynamic>{
       'width': instance.width,
       'height': instance.height,
       'url': instance.url,
-      'downloadUrl': instance.downloadUrl,
+      'download_url': instance.downloadUrl,
     };

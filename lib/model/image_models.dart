@@ -9,6 +9,7 @@ class ImageData {
   final int width;
   final int height;
   final String url;
+  @JsonKey(name: "download_url")
   final String downloadUrl;
 
   ImageData(
